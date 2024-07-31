@@ -7,24 +7,23 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Apprenant',
+            name="Apprenant",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('nom', models.CharField(max_length=100)),
-                ('prenom', models.CharField(max_length=100)),
+                ("id", models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name="ID")),
+                ("nom", models.CharField(max_length=100)),
+                ("prenom", models.CharField(max_length=100)),
             ],
         ),
         migrations.CreateModel(
-            name='Groupe',
+            name="Groupe",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('nom', models.CharField(max_length=100)),
-                ('apprenants', models.ManyToManyField(to='group_formation.apprenant')),
+                ("id", models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name="ID")),
+                ("nom", models.CharField(max_length=100)),
+                ("apprenants", models.ManyToManyField(to="group_formation.apprenant")),
             ],
         ),
     ]
