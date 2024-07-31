@@ -35,7 +35,8 @@ DEBUG = env("DEBUG")
 SECRET_KEY = os.environ.get("SECRET_KEY", default="")
 
 
-ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", default=["localhost"])
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "lms-project-k9gs.onrender.com", "ulxd.onrender.com"]
+CSRF_TRUSTED_ORIGINS = ["https://*.lms-project-k9gs.onrender.com", "https://*.127.0.0.1"]
 
 
 # Application definition
