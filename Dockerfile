@@ -12,8 +12,5 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Make port 8000 available to the world outside this container
 EXPOSE 8000
 
-# Run collectstatic
-RUN python manage.py collectstatic --noinput
-
 # Define the command to run on startup
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
