@@ -9,7 +9,7 @@ flake8 lms_project/
 
 
 # Run tests
-pytest
+pytest lms_project/
 
 # Check test coverage
 coverage run -m pytest
