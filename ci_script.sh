@@ -12,5 +12,5 @@ flake8 lms_project/
 pytest lms_project/
 
 # Check test coverage
-coverage run -m pytest
+coverage run -m pytest lms_project/
 coverage report -m
