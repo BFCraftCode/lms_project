@@ -1,4 +1,7 @@
 import logging
+from django.db import connection, OperationalError
+from django.db.migrations.executor import MigrationExecutor
+from django.db import connections
 from django.shortcuts import render
 from .models import Apprenant, Groupe
 import random
@@ -6,8 +9,24 @@ import random
 logger = logging.getLogger(__name__)
 
 
+def apply_migrations():
+    executor = MigrationExecutor(connections['default'])
+    targets = executor.loader.graph.leaf_nodes()
+    executor.migrate(targets)
+
+
 def index(request):
     context = {"groupes": None, "errors": []}
+
+    try:
+        # Check if the table exists
+        with connection.cursor() as cursor:
+            cursor.execute("SELECT 1 FROM group_formation_groupe LIMIT 1")
+        logger.info("La table group_formation_groupe existe.")
+    except OperationalError:
+        # If the table does not exist, apply migrations
+        logger.warning("La table group_formation_groupe n'existe pas. Application des migrations.")
+        apply_migrations()
 
     if request.method == "POST":
         apprenants = request.POST.getlist("apprenants")
