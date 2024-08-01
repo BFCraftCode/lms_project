@@ -33,7 +33,7 @@ environ.Env.read_env(os.path.join(BASE_DIR, ".env"))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # Use environment variables to set the settings
-DEBUG = True
+DEBUG = env("DEBUG")
 SECRET_KEY = os.environ.get("SECRET_KEY", default="")
 
 
