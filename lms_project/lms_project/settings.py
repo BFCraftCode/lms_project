@@ -135,7 +135,6 @@ STATIC_URL = "static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-import sentry_sdk
 
 sentry_sdk.init(
     dsn=os.environ.get("SENTRY_DSN", default=""),
