@@ -46,6 +46,7 @@ pip install -r requirements.txt
 ````
 cd lms_project
 ````
+````
 python manage.py runserver
 ````
 ## Tests and reports
